@@ -263,7 +263,7 @@ class QuotesChart(QtGui.QWidget):
     #     self.chart.setYRange(ylow, yhigh)
 
     def init_chart(self):
-        self.splitter = QtGui.QSplitter(QtCore.Qt.Vertical)
+        self.splitter = QtWidgets.QSplitter(QtCore.Qt.Vertical)
         self.splitter.setHandleWidth(0)
         self.layout.addWidget(self.splitter)
         self.chart = pg.PlotWidget(
@@ -272,20 +272,20 @@ class QuotesChart(QtGui.QWidget):
             enableMenu=True,
         )
         self.chart.getPlotItem().setContentsMargins(0, 0, 20, 0)
-        self.chart.setFrameStyle(QtGui.QFrame.StyledPanel | QtGui.QFrame.Plain)
+        self.chart.setFrameStyle(QtWidgets.QFrame.StyledPanel | QtGui.QFrame.Plain)
         self.chart.hideAxis('left')
         self.chart.showAxis('right')
         self.chart.showGrid(x=True, y=True)
 
         self.chartv = pg.PlotWidget(
             parent=self.splitter,
-            axisItems={'bottom': self.xaxis,
-                       'right': VolumeAxis(), 'left': OpenInterestAxis()},
+            axisItems={'bottomv': self.xaxis,
+                       'rightv': VolumeAxis(), 'leftv': OpenInterestAxis()},
             enableMenu=True,
         )
         self.chartv.getPlotItem().setContentsMargins(0, 0, 15, 15)
         self.chartv.setFrameStyle(
-            QtGui.QFrame.StyledPanel | QtGui.QFrame.Plain)
+            QtWidgets.QFrame.StyledPanel | QtWidgets.QFrame.Plain)
         # self.chartv.hideAxis('left')
         self.chartv.showAxis('left')
         self.chartv.showAxis('right')

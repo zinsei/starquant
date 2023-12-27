@@ -48,7 +48,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self._current_time = None
         self._config_server = config_server
         self._config_client = config_client
-        self._symbols = config_server['tickers']
+        #self._symbols = config_server['tickers']
         self._lang_dict = lang_dict
         self._font = lang_dict['font']
         self._widget_dict = {}

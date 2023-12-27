@@ -14,7 +14,7 @@ from ..common.constant import Interval, Direction, Offset
 sys.path.insert(0, "..")
 
 
-class BtDataPGChart(pg.GraphicsWindow):
+class BtDataPGChart(pg.GraphicsLayoutWidget):
     """"""
 
     def __init__(self):
@@ -197,7 +197,7 @@ class OpenInterestAxis(pg.AxisItem):
 CHART_MARGINS = (0, 0, 20, 10)
 
 
-class BTQuotesChart(QtGui.QWidget):
+class BTQuotesChart(QtWidgets.QWidget):
     signal = QtCore.pyqtSignal(Event)
 
     short_pen = pg.mkPen('#006000')
@@ -469,7 +469,7 @@ class BTQuotesChart(QtGui.QWidget):
         p2.linkedViewChanged(p1.vb, p2.XAxis)
 
 
-class CenteredTextItem(QtGui.QGraphicsTextItem):
+class CenteredTextItem(QtWidgets.QGraphicsTextItem):
     def __init__(
         self,
         text='',

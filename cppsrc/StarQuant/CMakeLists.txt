@@ -1,4 +1,7 @@
 include_directories(${StarQuantCpp_SOURCE_DIR}/StarQuant)
+include_directories(${StarQuantCpp_SOURCE_DIR}/lib)
+#set(CMAKE_C_FLAGS "$ {CMAKE_C_FLAGS} -fPIC")
+#set(CMAKE_CXX_FLAGS "$ {CMAKE_CXX_FLAGS} -fPIC")
 set(StarQuantCppSrc
   ./Common/datastruct.cpp
   ./Common/util.cpp
@@ -24,6 +27,8 @@ set(StarQuantCppSrc
 
 add_library(starquant SHARED ${StarQuantCppSrc})
 set_target_properties(starquant  PROPERTIES COMPILE_FLAGS "-fPIC")
+add_compile_options(-fPIC)
+link_directories(${StarQuantCpp_SOURCE_DIR}/lib)
 target_link_libraries(starquant  
   ${Boost_LIBRARIES} 
   ${PYTHON_LIBRARY} 
@@ -33,10 +38,12 @@ target_link_libraries(starquant
   ${FMT_LIBRARIES} 
   ${NANOMSG_LIBRARY_SHARED}
   LinuxDataCollect 
-  thosttraderapi 
-  thostmduserapi 
-  TapQuoteAPI 
-  TapTradeAPI
+  #thosttraderapi 
+  #thostmduserapi 
+  thostmduserapi_se.so
+  thosttraderapi_se.so
+  #TapQuoteAPI 
+  #TapTradeAPI
   pthread 
   dl 
   util

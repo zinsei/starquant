@@ -35,6 +35,10 @@ include_directories(${MONGOC_INCLUDE_DIRS})
 include_directories(${LOG4CPLUS_INCLUDE_DIRS})
 include_directories(${FMT_INCLUDE_DIRS})
 
+link_directories(
+/usr/lib/x86_64-linux-gnu/
+${StarQuantCpp_SOURCE_DIR}/lib
+)
 ADD_DEFINITIONS("-std=gnu++17 -DIB_USE_STD_STRING ")
 subdirs(StarQuant)
 

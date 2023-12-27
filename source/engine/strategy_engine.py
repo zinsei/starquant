@@ -129,29 +129,29 @@ class StrategyEngine(BaseEngine):
         with open(contractfile, encoding='utf8') as fc:
             contracts = yaml.load(fc)
         print('loading contracts, total number:', len(contracts))
-        for sym, data in contracts.items():
-            contract = ContractData(
-                symbol=data["symbol"],
-                exchange=Exchange(data["exchange"]),
-                name=data["name"],
-                product=PRODUCT_CTP2VT[str(data["product"])],
-                size=data["size"],
-                pricetick=data["pricetick"],
-                net_position=True if str(
-                    data["positiontype"]) == THOST_FTDC_PT_Net else False,
-                long_margin_ratio=data["long_margin_ratio"],
-                short_margin_ratio=data["short_margin_ratio"],
-                full_symbol=data["full_symbol"]
-            )
-            # For option only
-            if contract.product == Product.OPTION:
-                contract.option_underlying = data["option_underlying"],
-                contract.option_type = OPTIONTYPE_CTP2VT.get(
-                    str(data["option_type"]), None),
-                contract.option_strike = data["option_strike"],
-                contract.option_expiry = datetime.strptime(
-                    str(data["option_expiry"]), "%Y%m%d"),
-            self.contracts[contract.full_symbol] = contract
+        #for sym, data in contracts.items():
+        #    contract = ContractData(
+        #        symbol=data["symbol"],
+        #        exchange=Exchange(data["exchange"]),
+        #        name=data["name"],
+        #        product=PRODUCT_CTP2VT[str(data["product"])],
+        #        size=data["size"],
+        #        pricetick=data["pricetick"],
+        #        net_position=True if str(
+        #            data["positiontype"]) == THOST_FTDC_PT_Net else False,
+        #        long_margin_ratio=data["long_margin_ratio"],
+        #        short_margin_ratio=data["short_margin_ratio"],
+        #        full_symbol=data["full_symbol"]
+        #    )
+        #    # For option only
+        #    if contract.product == Product.OPTION:
+        #        contract.option_underlying = data["option_underlying"],
+        #        contract.option_type = OPTIONTYPE_CTP2VT.get(
+        #            str(data["option_type"]), None),
+        #        contract.option_strike = data["option_strike"],
+        #        contract.option_expiry = datetime.strptime(
+        #            str(data["option_expiry"]), "%Y%m%d"),
+        #    self.contracts[contract.full_symbol] = contract
 
     def register_event(self):
         """"""

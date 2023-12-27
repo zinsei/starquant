@@ -3,7 +3,7 @@ import pyqtgraph as pg
 from PyQt5 import QtCore, QtWidgets, QtGui
 
 
-class BacktesterChart(pg.GraphicsWindow):
+class BacktesterChart(pg.GraphicsLayoutWidget):
     """"""
 
     def __init__(self):

@@ -92,7 +92,7 @@ class CtpTDEngine : public IEngine, CThostFtdcTraderSpi {
     ///报单操作请求响应
     virtual void OnRspOrderAction(CThostFtdcInputOrderActionField *pInputOrderAction, CThostFtdcRspInfoField *pRspInfo, int32_t nRequestID, bool bIsLast);
     ///查询最大报单数量响应
-    virtual void OnRspQueryMaxOrderVolume(CThostFtdcQueryMaxOrderVolumeField *pQueryMaxOrderVolume, CThostFtdcRspInfoField *pRspInfo, int32_t nRequestID, bool bIsLast) {};
+    virtual void OnRspQueryMaxOrderVolume(CThostFtdcQryMaxOrderVolumeField *pQueryMaxOrderVolume, CThostFtdcRspInfoField *pRspInfo, int32_t nRequestID, bool bIsLast) {};
     ///投资者结算结果确认响应
     virtual void OnRspSettlementInfoConfirm(CThostFtdcSettlementInfoConfirmField *pSettlementInfoConfirm, CThostFtdcRspInfoField *pRspInfo, int32_t nRequestID, bool bIsLast);
     ///删除预埋单响应

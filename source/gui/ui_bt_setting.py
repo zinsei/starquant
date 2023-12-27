@@ -1441,7 +1441,7 @@ class BatchTable(QtWidgets.QTableWidget):
         self.setSortingEnabled(True)
         self.setColumnCount(len(self.cols))
         self.setHorizontalHeaderLabels(self.cols[:, 0])
-        self.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
+        self.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.verticalHeader().hide()
         self.itemDoubleClicked.connect(self.show_data)
         self.init_menu()

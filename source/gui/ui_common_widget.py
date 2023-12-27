@@ -947,7 +947,7 @@ class ContractManager(QtWidgets.QWidget):
         super().__init__()
 
         self.contracts = {}
-        self.load_contract()
+        #self.load_contract()
 
         self.init_ui()
 
